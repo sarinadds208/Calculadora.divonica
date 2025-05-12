@@ -1,136 +1,80 @@
-<!D<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Calculadora Simples</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #f5f5f5;
-      font-family: Arial, sans-serif;
-    }
-
-    .calculadora {
-      background: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      width: 250px;
-    }
-
-    #resultado {
-      width: 100%;
-      height: 40px;
-      font-size: 20px;
-      margin-bottom: 15px;
-      padding: 5px;
-      text-align: right;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    .botoes {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-
-    .botoes button {
-      height: 50px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      background-color: #3498db;
-      color: #fff;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    .botoes button:hover {
-      background-color: #2980b9;
-    }
-
-    .igual {
-      background-color: #2ecc71;
-      grid-column: span 2;
-    }
-
-    .igual:hover {
-      background-color: #27ae60;
-    }
-
-    .limpar {
-      background-color: #e74c3c;
-    }
-
-    .limpar:hover {
-      background-color: #c0392b;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Calculadora Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        input, select, button {
+            margin: 5px;
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-  <div class="calculadora">
-    <input type="text" id="resultado" disabled />
-    <div class="botoes">
-      <button onclick="limpar()" class="limpar">C</button>
-      <button onclick="adicionar('/')">/</button>
-      <button onclick="adicionar('*')">*</button>
-      <button onclick="adicionar('-')">-</button>
-      <button onclick="adicionar('7')">7</button>
-      <button onclick="adicionar('8')">8</button>
-      <button onclick="adicionar('9')">9</button>
-      <button onclick="adicionar('+')">+</button>
-      <button onclick="adicionar('4')">4</button>
-      <button onclick="adicionar('5')">5</button>
-      <button onclick="adicionar('6')">6</button>
-      <button onclick="calcular()" class="igual">=</button>
-      <button onclick="adicionar('1')">1</button>
-      <button onclick="adicionar('2')">2</button>
-      <button onclick="adicionar('3')">3</button>
-      <button onclick="adicionar('0')">0</button>
-    </div>
-  </div>
+    <h1>Calculadora Simples</h1>
+    
+    <input type="number" id="num1" placeholder="Primeiro número">
+    <input type="number" id="num2" placeholder="Segundo número">
+    
+    <select id="operacao">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    
+    <button onclick="calcular()">Calcular</button>
+    
+    <h2 id="resultado">Resultado: </h2>
 
-  <script>
-    const resultado = document.getElementById('resultado');
+    <script>
+        function calcular() {
+            const n1 = parseFloat(document.getElementById("num1").value);
+            const n2 = parseFloat(document.getElementById("num2").value);
+            const op = document.getElementById("operacao").value;
+            let resultado;
 
-    function adicionar(valor) {
-      resultado.value += valor;
-    }
+            if (isNaN(n1) || isNaN(n2)) {
+                resultado = "Por favor, digite números válidos.";
+            } else {
+                switch (op) {
+                    case '+':
+                        resultado = n1 + n2;
+                        break;
+                    case '-':
+                        resultado = n1 - n2;
+                        break;
+                    case '*':
+                        resultado = n1 * n2;
+                        break;
+                    case '/':
+                        resultado = n2 !== 0 ? n1 / n2 : "Erro: divisão por zero";
+                        break;
+                    default:
+                        resultado = "Operação inválida";
+                }
+            }
 
-    function limpar() {
-      resultado.value = '';
-    }
-
-    function calcular() {
-      try {
-        resultado.value = eval(resultado.value);
-      } catch {
-        resultado.value = 'Erro';
-      }
-    }
-  </script>
+            document.getElementById("resultado").innerText = "Resultado: " + resultado;
+        }
+    </script>
 </body>
-</html>OCTYPE html>
+</html>DOCTYPE html>
 
 <html>
 <head>
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-  <link rel="stylesheet" href="styles/style.css"/>
   <title>Hello, World!</title>
 </head>
 <body>
   <h1>
-    Caculadora divnica!
+    Calculadora!
   </h1>
 </body>
 </html>
